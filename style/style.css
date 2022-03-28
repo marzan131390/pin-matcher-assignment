@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #10101B;
+    height: 100vh;
+}
+.pin-generator {
+    background-color: #222436;
+}
+/* input {
+    background-color: #3D4153;
+} */
