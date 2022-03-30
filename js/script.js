@@ -10,12 +10,11 @@ function getPin() {
     }   
 };
 //Display OTP into Input Field When Btn is Clicked...
+let leftInput = document.getElementById("left-input");
 let generateBtn = document.querySelector(".generate-btn");
 generateBtn.addEventListener("click", function() {
-    let inputField = document.getElementById("left-input");
-    inputField.value = getPin();
+    leftInput.value = getPin();
 });
-
 //Working with key pad....
 let rightInput = document.getElementById("right-input");
 let keyBody = document.getElementById("key-body");
@@ -24,7 +23,7 @@ keyBody.addEventListener("click", function(event) {
     //Clearing All Input Field if C is clicked..
     if(isNaN(outputValue)) {
         if(outputValue == "C") {
-            rightInput.value = " ";
+            rightInput.value = "";
         }
     } 
     //Display Number Value Only...
@@ -40,6 +39,20 @@ backSpace.addEventListener("click", function() {
     let outputValue = rightInput.value;
     let newValue = outputValue.slice(0, -1);
     rightInput.value = newValue;
+});
+//Working With Matching Value from both two input Value...
+let submitBtn = document.getElementById("submit-btn");
+submitBtn.addEventListener("click", function() {
+    let pinMatch = document.getElementById("pin-matched");
+    let pinUnMatch = document.getElementById("pin-unmatched");
+    if(leftInput.value == rightInput.value) {
+        pinMatch.style.display = "block";
+        pinUnMatch.style.display = "none";
+    }
+    else {
+        pinUnMatch.style.display = "block";
+        pinMatch.style.display = "none";
+    }
 });
 
 
